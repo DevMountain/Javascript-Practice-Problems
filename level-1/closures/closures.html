@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>closures</title>
+
+    <!-- STYLES STYLES STYLES  -->
+    <link rel="stylesheet" href="../../base/css/reset.css">
+    <link rel="stylesheet" href="../../base/css/global.css">
+    <link rel="stylesheet" href="../../base/css/mocha.css">
+
+
+    <script src="../../base/lib/jquery.js"></script>
+    <script src="../../base/lib/expect.js"></script>
+    <script src="../../base/lib/mocha.js"></script>
+    <script src="../../base/lib/sinon.js"></script>
+
+
+
+
+    <script src="solution.js"></script>
+
+    <script>
+        // Tell mocha to use bdd-style expects
+        mocha.setup('bdd')
+    </script>
+
+    <!-- Load tests and helpers here -->
+    <script src="../spec/closureLevel1Spec.js"></script>
+
+    <script>
+        // Mocha expects a global onload var here and automagically executes it on pageload
+        onload = function(){
+            mocha.run();
+        };
+    </script>
+</head>
+<body>
+<main>
+    <header class="navbar">
+        <h1>Closu<span style="color:#F3524A;">res</span> Level <span style="color:#F3524A;">1</span></h1>
+    </header>
+    <section class="question-section">
+        <div id="mocha">
+
+        </div>
+
+    </section>
+
+</main>
+</body>
+</html>
