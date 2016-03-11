@@ -16,3 +16,5 @@ console.log(person.firstname);
 //Access person first name using bracket notation
 console.log(person['firstname']);
 
+// Set the person firstname to a different name using dot notation
+// Set the person firstname to a different name using bracket notation

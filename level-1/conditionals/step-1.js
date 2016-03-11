@@ -16,7 +16,7 @@
 
     var numbers = [1, 5, 7, 3, 8, 0, 12, 212, 435, 875, 55, 23, 22];
 
-   // for loop code here
+// for loop code here
 
 
 // Problem #3

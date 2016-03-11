@@ -15,34 +15,30 @@
     <script src="../../base/lib/mocha.js"></script>
     <script src="../../base/lib/sinon.js"></script>
 
-
-
-
     <script src="solution.js"></script>
 
-    <script>
-        // Tell mocha to use bdd-style expects
-        mocha.setup('bdd')
-    </script>
 
     <!-- Load tests and helpers here -->
     <script src="../spec/closureLevel1Spec.js"></script>
 
-    <script>
-        // Mocha expects a global onload var here and automagically executes it on pageload
-        onload = function(){
-            mocha.run();
-        };
-    </script>
 </head>
 <body>
 <main>
     <header class="navbar">
-        <h1>Closu<span style="color:#F3524A;">res</span> Level <span style="color:#F3524A;">1</span></h1>
+        <h1>Closu<span style="color:#F3524A;">re</span> Level <span style="color:#F3524A;">1</span></h1>
     </header>
     <section class="question-section">
-        <div id="mocha">
-
+        <div class="question">
+            <h2 id="problem1"> Problem #1 </h2>
+        </div>
+        <div class="question">
+            <h2 id="problem2"> Problem #2 </h2>
+        </div>
+        <div class="question">
+            <h2 id="problem3"> Problem #3 </h2>
+        </div>
+        <div class="question">
+            <h2 id="problem4"> Problem #4 </h2>
         </div>
 
     </section>
