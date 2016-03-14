@@ -88,6 +88,22 @@ module2.publicMethod('ben', 29, 'UTAH');
 
 
 
+var smoothy = (function() {
+
+    var blend = function(name, age, location){
+        return name + ' ' + age + ' ' + location
+    };
+
+    // Anything that is being returned is made public and can be invoked from outside our lexical scope
+    return {
+        makeSmoothy: function (name,age,location) {
+            return blend(name,age,location)
+        }
+    };
+
+})();
+
+smoothy.makeSmoothy('ben', 29, 'UTAH');
 
 
 
@@ -97,20 +113,7 @@ module2.publicMethod('ben', 29, 'UTAH');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- //pass in a argument to the private function
+//pass in a argument to the private function
 
 
 
@@ -140,13 +143,27 @@ for(var i =1; i<=5; i++) {
 //
 //
 //
-//for(var i = 1; i<=5; i++) {
-//    (function(i) {
-//        setTimeout(function() {
-//            console.log('i: ' + i);
-//        },i*1000)
-//    })(i)
-//}
+for(var i = 1; i<=5; i++) {
+    (function(i) {
+        setTimeout(function() {
+            console.log('i: ' + i);
+        },i*1000)
+    })(i)
+}
 
 
 
+// Write a smoothy machine closure
+
+
+function blender(fruit) {
+    var b = fruit;
+    var y = 'yogurt';
+
+    function bs() {
+        alert( b + ' and ' + y + ' makes ' + b + ' swirl');
+    }
+    bs();
+}
+
+blender('blueberry');

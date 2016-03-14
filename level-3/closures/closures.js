@@ -89,8 +89,26 @@ var numberFactory = function(num1) {
 
 var times5 = numberFactory(5);
 
-times5(3) // this would return 15
+times5(3) // this would return 1
+/* Make the following code work:
 
+ funcArray[0]() //returns 0
+ funcArray[1]() //returns 1
+ funcArray[2]() //returns 2
+ funcArray[3]() //returns 3
+
+ * Hint: Don't let this fool you. Break down what's really happening here. */
+
+// Below is the solution Code. Try testing yourself in the console and then you can look here to check your work. - UNDER CONSTRUCTION. sorry...
+
+var thefunc = function(number){
+    return function() {
+        //console.log(number);
+        return number;
+    }
+}
+
+funcArray = [thefunc(0), thefunc(1), thefunc(2), thefunc(3)];
 
 
 function add(num1){
@@ -112,7 +130,7 @@ var sumMulti = sumFunc(2);
 
 
 
-// .3
+
 
 function add () {
     if (arguments.length === 1) {
