@@ -1,14 +1,41 @@
 
+// Write a function called 'findInArray' that takes in two parameters,
+// the first representing the array to be searched and the second representing the value to be searched for. Return true
+
+function findInArray(arr,value) {
+    var index = arr.indexOf(value);
+    if (index >= 0) {
+        return true
+    }
+}
 
 
 
+//Write a function called 'maker' that creates an array and fills that array with numbers 1 to 25, then returns the array.
+
+function maker() {
+    var numbers = []
+    for(var i =0; i <= 25; i++) {
+        numbers.push(i);
+    }
+    return numbers
+}
+
+
+//Create a function called "looper" that when passed an array of numbers will increment each value in the array by 5 and then return the updated array.
+// For example: if the looper function were to be passed [ 2, 7 ] it should return [ 7, 12 ]
+
+function looper(arr) {
+    var updatedArray = [];
+    for(var i = 0; i < arr.length; i++) {
+        updatedArray.push(arr[i] + 5)
+    }
+    return updatedArray
+}
 
 
 
-
-
-
-//Add 10 to numbers and strings of numbers in an array.
+// This problem is the same as the above problem except they will need to parse the int if the value is a string
 
 //Write a function called addTen that is given 'numbers' as it's only argument and returns a new
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
@@ -24,7 +51,6 @@ function addTen(arr) {
         newArr.push(newItem);
     }
 
-
     return newArr;
 }
 
@@ -32,31 +58,50 @@ addTen(numbers);
 
 
 
-
-
-
-
-
-
 //Write a function called removeItem that is given two arguments,
 // the first is an array called myGroceryList, and the second is an item to remove from myGroceryList.
-// If the second argument (the item to remove) matches an item in myGroceryList, remove that item from your grocery list and return the new,updated grocery list.
+// If the second argument (the item to remove) matches an item in myGroceryList,
+// remove that item from your grocery list and return the new,updated grocery list.
+var myGroceryList = ['orange', 'peach', 'apple', 'bread']
 
-//Code Here
+function removeItem(arr, item ) {
+    var index = arr.indexOf(item);
+    if (index >= 0) {
+        arr.splice(index, 1);
+        console.log('the new array' + arr);
+    }
+}
 
-//Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList and the second is an item to add to your grocery list. If the item is already in the grocery list, do not add it a second time. If it's not in the list, then add it and return the new list.
-
-//Code Here
 
 
+//Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList and the second is an item to add to your grocery list.
+// If the item is already in the grocery list, do not add it a second time. If it's not in the list, then add it and return the new list.
+
+function addItem(arr, item ) {
+    var index = arr.indexOf(item);
+    if (index >= 0) {
+       return
+    }
+    arr.push(item);
+    console.log('the new array' + arr);
+
+}
 
 
 
-//For loops are especially useful when combined with arrays.
+// For loops are especially useful when combined with arrays.
 // Create an empty array called myArray, then create a function called arrayFiller that takes one parameter (the parameter will be a number).
 // Then fill myArray with the string "item" the number of times indicated by the parameter.
 // Return the filled array. For example if I were to call arrayFiller(2) I would expect the return value to be ["item","item"] .
 
+
+myArray = [];
+function arrayFilter(num) {
+    for(var i = 0; i < num; i++) {
+        myArray.push('item')
+    }
+  return myArray;
+}
 
 
 //Write a function below called "oddsAndEvens" that loops through a parameter "nums" (an array).
@@ -66,20 +111,15 @@ var evens = []; // Do not edit this line.
 var odds = []; // Do not edit this line.
 
 
-
-
-//Write a function called 'findInArray' that takes in two parameters, the first representing the array to be searched and the second representing the value to be searched for. Return true
-
-
-
-
-//Write a function called 'maker' that creates an array and fills that array with numbers 1 to 25, then returns the array.
-
-
-
-
-//Create a function called "looper" that when passed an array of numbers will increment each value in the array by 5 and then return the updated array.
-// For example: if the looper function were to be passed [ 2, 7 ] it should return [ 7, 12 ]
+function oddsAndEvens(nums) {
+    for(var i = 0; i < nums.length; i++) {
+        if(nums[i] % 2 === 0) {
+            evens.push(nums[i]);
+        } else if(nums[i] % 2 !== 0){
+            odds.push(nums[i]);
+        }
+    }
+}
 
 
 
