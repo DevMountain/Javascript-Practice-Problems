@@ -6,7 +6,7 @@ var number = {
     score: 100,
     length: 12,
     year: 2016
-}
+};
 
 
 // Create a function called objectLooper that when called will loop through your object and change all of the values to be 20.
@@ -106,55 +106,87 @@ function personalize(obj) {
 
 
 
-//A function that exists as a property of an object is called a method.
-// One of the ways that this is useful is if for customizing the behavior of the function (method) with other information held in the object.
-
-//var tyler = {
-//    name: 'Tyler McGinnis',
-//    age: 24,
-//    pwHash: 'U+Ldlngx2BYQk',
-//    email: 'tylermcginnis33@gmail.com',
-//    birthday: '05/02/1990',
-//    username: 'tylermcginnis33',
-//    sayName: function(){
-//        return 'Hello, my name is : ' + this.name;
-//    },
-//    sayEmail: function(){
-//        return 'My email address is : ' + this.email;
-//    }
-//};
-
-//Let's say I decided to change my name and email address to the following:
-// name -> 'Tyler S. McGinnis', email -> 'tyler.mcginnis@devmounta.in'. Make that change.
-
-//Code Here
-
-//Now call the sayName method that's on the tyler object and save its response to a variable called namePhrase. Call the sayEmail method and save its response to a variable called emailPhrase.
-
-//Code Here
-
-
 //OBJECTS + FUNCTIONS
+
+//// Constructor functions
+//
+//function Rabbit(type) {
+//    this.type = type;
+//}
+//
+//var killerRabbit = new Rabbit("killer");
+//var blackRabbit = new Rabbit("black");
+//console.log(blackRabbit.type);
+//// → black
+
+
+
 
 // Create a function called getPerson. Inside that function create a person object with a name property (string) and an age property (number) and return it.
 
-//Create a newCar function that takes in two parameters: make and model. Using those parameters create a car object with make and model properties and return it from the newCar function
+// Create a newCar function that takes in two parameters: make and model. Using those parameters create a car object with make and model properties and return it from the newCar function
 
 // Create a function called canDrive that takes in a person object that has a name and an age property.
-// If the person's age is greater than or equal to 16 then return a string concatenating their name with the string " is old enough to drive."
-// If the person's age is less than 16 then return a string concatenating their name with the string " is not old enough to drive."
 
-// Create a function called changeEmail that takes in a user object and a newEmail string.
+
+
+
+    var user1 = {
+        name: 'ben callis',
+        gender: 'male',
+        username: 'perfectStorm1',
+        email: 'perfectStorm1@gmail.com',
+        pwHash: 'U+Ldlngx2BYQk',
+        age: 22
+
+    }
+
+
+
+
+// Create a function called updateEmail that takes in a user object and a newEmail string.
 // Replace the user's current email address (assigned to the email property) with the newEmail string, then return the updated user object.
 
-//Create a function called addRole that takes in a user object and a string. This string will represent the user's new role in the system (i.e. admin, creator, editor, visitor).
+
+function updateEmail(obj, str) {
+    for(key in obj) {
+        if(key === 'email') {
+            obj[key] = str
+        }
+    }
+    return obj
+}
+
+
+
+
+// Write a function that takes a person obj and checks if the person is old enough to enter the club.
+// If they are 21 or older return true else return false
+
+
+function isOldEnough(obj) {
+    for(key in obj) {
+        if(key === 'age' && obj[key] >= 21) {
+            return true;
+
+        }
+        return false
+    }
+
+}
+
+
+
+// Create a function called addRole that takes in a user object and a string. This string will represent the user's new role in the system (i.e. admin, creator, editor, visitor).
 // Create a new property on the user object called "role" and assign the passed in string to it, then return the updated user object.
 
 // Create a function called removeRole that takes in a user object. Delete the user's role property and return the updated user.
 
-// Create a function called unknownPerson that takes in a person object. This person object will have properties such as name, age, gender, etc. Loop through all the properties of the object and set each value to "Unknown", then return the object.
+// Create a function called unknownPerson that takes in a person object.
+// This person object will have properties such as name, age, gender, etc. Loop through all the properties of the object and set each value to "Unknown", then return the object.
 // For example, if "person" is {name: "Dolph L.", age: 33} then the function would return {name: "Unknown", age: "Unknown"}.
 
 
-// Create a function called truthyObject that takes in a user object. This function should loop through the user object checking to make sure that each of its values is truthy.
+// Create a function called truthyObject that takes in a user object.
+// This function should loop through the user object checking to make sure that each of its values is truthy.
 // If a value is not truthy then remove it from the object. Return the updated object after looping through it.

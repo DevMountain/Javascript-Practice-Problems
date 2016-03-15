@@ -1,7 +1,3 @@
-// Here is another example of teh modern module pattern,
-// But this time we are passing arguments to our private method through our public method
-
-
 
 // Inside the return create a  property called publicMethod with a value that is a function that has 3 parameters a name, age and location,
 // this function returns privateMethod which also has 3 parameters a name, age and location.

@@ -151,7 +151,7 @@ for(var i = 0; i < num2; i++){
 
 
 ////Above is some code that adds a set of random numbers to both arr1 and arr2.
-////Write a function called 'longer' that is given arr1 and arr2 as its only arguments and returns the array that is longer.
+// Write a function called 'longer' that is given arr1 and arr2 as its only arguments and returns the array that is longer.
 
 function longer(arr1, arr2) {
     if(arr1.length > arr2.length) {
@@ -167,9 +167,7 @@ var longerArray = longer(arr1, arr2);
 
 
 
-//Create a function called evenFinder that takes an array as an argument and returns an array with all of the odd numbers removed.
-
-
+// Create a function called evenFinder that takes an array as an argument and returns an array with all of the odd numbers removed.
 
 
 // In javascript it is very common to store multiple related objects in an array:
@@ -201,24 +199,41 @@ var itunesData = [
 
 //Create an empty array called users.
 
-// Code Here
+var users = [
+
+]
+
 
 /* Create three user objects to be added to the users array. Each user object should contain the
  following properties: name, email, password, username.*/
-
-// Code Here
-
-//include this as one of the objects in your array.
 
 var user1 = {
     name: 'Tyler McGinnis',
     email: 'tylermcginnis33@gmail.com',
     password: 'iLoveJavaScript',
     username: 'infiniteLoop'
-}
+};
+var user2 = {
+    name: 'Jeremy Robertson',
+    email: 'jeremy@devmounta.in',
+    password: 'somethingAboutCats',
+    username: 'JR-4Life'
+};
+
+var user3 = {
+    name: 'Ben Callis',
+    email: 'bencallis1@gmail.com',
+    password: 'loveFrontEnd23',
+    username: 'bencallis1'
+};
+
+
+users.push(user1,user2,user3)
+
 // Now Fill the array with the four objects
 
 // Code Here
+
 
 /*Now you have a very common data structure. Twitter is a good use case.
  It's easy to imagine that your followers list on Twitter is an Array full or objects

@@ -1,4 +1,19 @@
 
+
+// Create a function called myLoop that takes in two parameters,
+// the first parameter should represent a starting number and the second is how many times the starting number should be incremented.
+
+function makeBigger(num1, num2) {
+    var newNum = 0;
+    for(var i = 0; i <= num2; i++) {
+        newNum = i;
+
+    }
+    return newNum + num1
+}
+
+
+
 // If statements are all about making decisions based on certain parameters.
 // Let's decide what you should wear today based on the temperature outside and the weather.
 // Create a function called myOutfit that takes in a temperature and a weather parameter.
@@ -11,48 +26,44 @@
 
 
 
-// Create a function called myLoop that takes in two parameters,
-// the first parameter should represent a starting number and the second is how many times the starting number should be incremented.
-
-
 
 //Create a function called exponent that takes in two parameters,
 // the first parameter should represent a number to be multiplied against itself and the second parameter should represent how many
 // times it is multiplied by itself. The function should return the result of this operation. exponent(2,3) should return 8
 
+function exponent(num, times) {
+   return Math.pow(num, times);
+}
 
 
+// Create a function that returns all the prime number up to a given number. That number is passed in a parameter
 
-// Create a function that returns all the prime number up to 150
 
 
 
 
 // Write a function that accepts 1 paremter and then checks if that parameter is a prime number
-function isPrime(n)
-{
-
-    if (n===1)
-    {
-        return false;
+function isPrime(num) {
+    if(num < 2) return false;
+    for (var i = 2; i < num; i++) {
+        if(num%i==0)
+            return false;
     }
-    else if(n === 2)
-    {
-        return true;
-    }else
-    {
-        for(var x = 2; x < n; x++)
-        {
-            if(n % x === 0)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
+    return true;
 }
 
-console.log(isPrime(37));
+
+// Using the isPrime function write another function that take a number as a parameter, this number represents how far we need to check
+// for prime numbers. If the number is prime then push it to the primeNumbers array
+
+
+ function howManyPrimes(max) {
+     var primeNumbers = []
+     for(var i = 0; i < max; i++){
+         if(isPrime(i)) primeNumbers.push(i);
+     }
+     return primeNumbers
+ }
 
 
 
