@@ -62,6 +62,7 @@ addTen(numbers);
 // the first is an array called myGroceryList, and the second is an item to remove from myGroceryList.
 // If the second argument (the item to remove) matches an item in myGroceryList,
 // remove that item from your grocery list and return the new,updated grocery list.
+
 var myGroceryList = ['orange', 'peach', 'apple', 'bread']
 
 function removeItem(arr, item ) {

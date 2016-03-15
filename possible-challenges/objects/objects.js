@@ -1,37 +1,84 @@
-// Create a 'numbers' object with the following properties age, score, length, and year. Set the age property to 30, the score property to 100, the length property to 12, and the year property to 2015.
+// Create a 'numbers' object with the following properties age, score, length, and year.
+// Set the age property to 30, the score property to 100, the length property to 12, and the year property to 2015.
 
-//Code Here
+var number = {
+    age: 30,
+    score: 100,
+    length: 12,
+    year: 2016
+}
+
 
 // Create a function called objectLooper that when called will loop through your object and change all of the values to be 20.
 
-//Code Here
+function objectLooper(obj) {
+    for(key in obj) {
+        obj[key] = 20;
+        console.log(key + obj[key] );
+    }
+
+}
+
+
+//Create a constructor function that creates a person object. This person object should have a firstname, lastname, age property
+
+function person(first, last, age) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+
+}
+
+var user1 = new person("John", "Doe", 50);
+var user2 = new person("Sally", "Rally", 48);
 
 
 
-//Create an object called states that has a utah property with a value of 2942902, a texas property with a value of 26956958, and a california property with a value of 38802500.
+// Create a function called statesLooper that when invoked will loop through your states object and if the states
+// value is greater than 3000000, set it to 0.
 
-//Code Here
+var state = {
+    utah: 2942902,
+    texas: 26956958,
+    california: 38802500
+};
 
-//Now create a function called statesLooper that when invoked will loop through your states object and if the states value is greater than 3000000, set it to 0.
 
-//Code Here
+function stateLooper(arr) {
+    for(key in arr) {
+        if(arr[key] > 3000000 ) {
+            arr[key] = 0;
 
-
+        }
+    }
+}
 
 
 
 // Loop through an object and remove any properties whose values are falsy. Then update the object with new information.
 
 var user = {
-    name: 'Tyler McGinnis',
+    name: 'Sally Rally',
     email: null,
     pwHash: 'U+Ldlngx2BYQk',
     birthday: undefined,
-    username: 'tylermcginnis33',
+    username: 'SallyRally801',
     age: 0
+
 }
 
+
 /*Above you're given a user object. Create a function called removeFalsy that loops through the user object and checks to make sure that each value is truthy. If it's not truthy, remove it from the object, then return the revised object. */
+
+function cleanUser(arr) {
+    for(key in arr) {
+        if(arr[key] == false || arr[key] == null || arr[key] == undefined ) {
+            console.log(key)
+
+
+        }
+    }
+}
 
 // Code Here
 
