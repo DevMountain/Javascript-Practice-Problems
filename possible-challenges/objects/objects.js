@@ -68,27 +68,40 @@ var user = {
 }
 
 
-/*Above you're given a user object. Create a function called removeFalsy that loops through the user object and checks to make sure that each value is truthy. If it's not truthy, remove it from the object, then return the revised object. */
+/*Above you're given a user object. Create a function called removeFalsy that loops through the user object and checks to make sure that each value is truthy.
+If it's not truthy, remove it from the object, then return the revised object. */
 
-function cleanUser(arr) {
+function removeFalsy(arr) {
     for(key in arr) {
         if(arr[key] == false || arr[key] == null || arr[key] == undefined ) {
-            console.log(key)
-
-
+            delete arr[key];
         }
     }
+    return arr
 }
 
-// Code Here
-
 //Invoke the removeFalsy function. and save the result to a variable called cleanUser.
+ var cleanUser= removeFalsy(user)
+
+
 
 // Code Here
 
-//Once you get your truthy object, create a function called personalize that changes the remaining values in cleanUser to be: name: 'Ryan', pwHash: '43df90w_h', username: 'ryanleeeallred'.
+//Once you get your truthy object, create a function called personalize that changes the remaining values in
+// cleanUser to be: name: 'Ryan', pwHash: '43df90w_h', username: 'ryanleeeallred'.
 
-// Code Here
+function personalize(obj) {
+         for(key in obj) {
+             if(key === 'name') {
+                 obj[key] = 'Ryan';
+             } else if(key === 'pwHash') {
+                 obj[key] = '43df90w_h';
+             }else if(key === 'username') {
+                 obj[key] = 'ryanleeeallred';
+             }
+         }
+    return obj
+}
 
 
 
@@ -120,3 +133,28 @@ function cleanUser(arr) {
 
 //Code Here
 
+
+//OBJECTS + FUNCTIONS
+
+// Create a function called getPerson. Inside that function create a person object with a name property (string) and an age property (number) and return it.
+
+//Create a newCar function that takes in two parameters: make and model. Using those parameters create a car object with make and model properties and return it from the newCar function
+
+// Create a function called canDrive that takes in a person object that has a name and an age property.
+// If the person's age is greater than or equal to 16 then return a string concatenating their name with the string " is old enough to drive."
+// If the person's age is less than 16 then return a string concatenating their name with the string " is not old enough to drive."
+
+// Create a function called changeEmail that takes in a user object and a newEmail string.
+// Replace the user's current email address (assigned to the email property) with the newEmail string, then return the updated user object.
+
+//Create a function called addRole that takes in a user object and a string. This string will represent the user's new role in the system (i.e. admin, creator, editor, visitor).
+// Create a new property on the user object called "role" and assign the passed in string to it, then return the updated user object.
+
+// Create a function called removeRole that takes in a user object. Delete the user's role property and return the updated user.
+
+// Create a function called unknownPerson that takes in a person object. This person object will have properties such as name, age, gender, etc. Loop through all the properties of the object and set each value to "Unknown", then return the object.
+// For example, if "person" is {name: "Dolph L.", age: 33} then the function would return {name: "Unknown", age: "Unknown"}.
+
+
+// Create a function called truthyObject that takes in a user object. This function should loop through the user object checking to make sure that each of its values is truthy.
+// If a value is not truthy then remove it from the object. Return the updated object after looping through it.

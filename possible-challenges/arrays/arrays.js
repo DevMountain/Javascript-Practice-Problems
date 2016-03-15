@@ -167,7 +167,7 @@ var longerArray = longer(arr1, arr2);
 
 
 
-
+//Create a function called evenFinder that takes an array as an argument and returns an array with all of the odd numbers removed.
 
 
 
@@ -271,3 +271,7 @@ var colt = {
 //Now let's say Cahlan has a mental breakdown and has to take a leave of absense to 'find himself'. Create a function called 'removeCahlan' that loops through the array until it finds Cahlan and then removes that object from the array.
 
 //Code Here
+
+
+// Finish the function missingNo so that it takes in a sorted array of integers which contains all integers between 0 and N except one value, and returns the missing integer in that array. Example: if you are passed [0,1,2,3,5],
+// this is an array between 0 and 5, it is sorted. However, the number 4 is missing. Your function needs to return 4.
