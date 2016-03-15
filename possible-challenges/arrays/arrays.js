@@ -126,23 +126,43 @@ function oddsAndEvens(nums) {
 
 
 ////Create a function that will loop through an array in reverse order.
-//
-//var num1 = Math.floor(Math.random() * (30 - 0) + 0);
-//var num2 = Math.floor(Math.random() * (30 - 0) + 0);
-//var arr1 = [];
-//var arr2 = [];
-//for(var i = 0; i < num1; i++){
-//    arr1.push(i);
-//}
-//for(var i = 0; i < num2; i++){
-//    arr2.push(i);
-//}
+
+
+ function backWards(arr) {
+     for (var i = arr.length - 1; i >= 0; i--) {
+         console.log(arr[i]);
+     }
+ }
+
+
+
+
+var num1 = Math.floor(Math.random() * (30 - 0) + 0);
+var num2 = Math.floor(Math.random() * (30 - 0) + 0);
+var arr1 = [];
+var arr2 = [];
+for(var i = 0; i < num1; i++){
+    arr1.push(i);
+}
+for(var i = 0; i < num2; i++){
+    arr2.push(i);
+}
+
+
 ////Above is some code that adds a set of random numbers to both arr1 and arr2.
 ////Write a function called 'longer' that is given arr1 and arr2 as its only arguments and returns the array that is longer.
-//
-//// Code Here
-//
-//var longerArray = longer(arr1, arr2); // This is for testing purposes. Do not change.
+
+function longer(arr1, arr2) {
+    if(arr1.length > arr2.length) {
+        console.log('arr1 is longer');
+        return arr1;
+    } else if(arr1.length < arr2.length) {
+        console.log('arr2 is longer');
+        return arr2;
+    }
+}
+
+var longerArray = longer(arr1, arr2);
 
 
 
@@ -170,6 +190,10 @@ var itunesData = [
         tracks: 19
     }
 ];
+
+
+
+
 
 
 /* This format is a very clean way to pass around large LISTS (arrays) of COLLECTIONS (objects) */
