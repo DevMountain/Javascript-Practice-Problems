@@ -193,9 +193,8 @@ var itunesData = [
 
 
 
+// Level 3
 
-
-/* This format is a very clean way to pass around large LISTS (arrays) of COLLECTIONS (objects) */
 
 //Create an empty array called users.
 
@@ -211,82 +210,101 @@ var user1 = {
     name: 'Tyler McGinnis',
     email: 'tylermcginnis33@gmail.com',
     password: 'iLoveJavaScript',
-    username: 'infiniteLoop'
+    username: 'infiniteLoop',
+    userId: 12345678
 };
 var user2 = {
     name: 'Jeremy Robertson',
     email: 'jeremy@devmounta.in',
     password: 'somethingAboutCats',
-    username: 'JR-4Life'
+    username: 'JR-4Life',
+    userId: 1234567891011
 };
 
 var user3 = {
     name: 'Ben Callis',
     email: 'bencallis1@gmail.com',
     password: 'loveFrontEnd23',
-    username: 'bencallis1'
+    username: 'bencallis1',
+    userId: 123456
 };
 
 
-users.push(user1,user2,user3)
-
-// Now Fill the array with the four objects
-
-// Code Here
+users.push(user1,user2,user3);
 
 
-/*Now you have a very common data structure. Twitter is a good use case.
- It's easy to imagine that your followers list on Twitter is an Array full or objects
- and those objects contain properties about the specific person you follow.*/
 
-/*Now let's say that Tyler decided to delete his account. Loop through your array of
+/*
+ Now let's say that Tyler decided to delete his account. Loop through your array of
  objects until you find Tyler's account (use tylermcginnis33@gmail.com to find him).
- Once you find the particular indice he's located in, delete him from the array.*/
-
-//Code Here
-
-//This is very much how data works in 'the real world'.
+ Once you find the particular indice he's located in, delete him from the array.
+ */
 
 
+function deleteUser(array, property, value) {
 
+    for(var i = 0; i < array.length; i += 1) {
+        if(array[i][property] === value) {
+            array.splice(i, 1);
 
-
-
-
-var devMountainEmployees = [];
-
-var tyler = {
-    name: 'Tyler',
-    position: 'Lead Instructor/Engineer',
-    spiritAnimal: 'Honey Badger'
-};
-
-var cahlan = {
-    name: 'Cahlan',
-    position: 'CEO',
-    spiritAnimal: 'butterfly'
-};
-
-var ryan = {
-    name: 'Ryan',
-    position: 'Marketing',
-    spiritAnimal: 'fox'
-};
-
-var colt = {
-    name: 'Colt',
-    position: 'Everything really',
-    spiritAnimal: 'Young Male Horse'
+        }
+    }
+    return array;
 }
 
-//Above you're given an empty array with four objects. Create a function called 'fillArray' that adds those four objects to the devMountainEmployees array in the same order that they are listed above.
 
-//Code Here
-
-//Now let's say Cahlan has a mental breakdown and has to take a leave of absense to 'find himself'. Create a function called 'removeCahlan' that loops through the array until it finds Cahlan and then removes that object from the array.
-
-//Code Here
+deleteUser(users,'email','bencallis1@gmail.com');
 
 
-// Finish the function missingNo so that it takes in a sorted array of integers which contains all integers between 0 and N except one value, and returns the missing integer in that array. Example: if you are passed [0,1,2,3,5],
+
+
+
+
+// Write a function called updateUserEmail that will loop through your users array and find a specific user.
+// After you find the user you are looking for update their email address. To make this challenge more
+// realistic search for the user by a user id
+
+
+function updateUserEmail(array, property, value, newEmail) {
+    var i;
+    for(i = 0; i < array.length; i++ ) {
+        if(array[i][property] === value) {
+           array[i].email = newEmail;
+
+        }
+    }
+    return array
+
+
+}
+
+updateUserEmail(users, 'userId', 123456, 'something@someone.com');
+
+
+
+
+
+// Write a function called changePassword that will loop through your users array and find a specific user.
+// After you find the user you are looking for update their password. To make this challenge more
+// realistic search for the user by a user id
+
+function changePassword(array, property, value, newPassword) {
+    var i;
+    for(i = 0; i < array.length; i++ ) {
+        if(array[i][property] === value) {
+            array[i].password = newPassword;
+
+        }
+    }
+    return array
+
+
+}
+
+changePassword(users, 'userId', 123456, 'thinkinAboutClouds');
+
+
+
+// Finish the function missingNo so that it takes in a sorted array of integers which contains all integers between 0 and N except one value,
+// and returns the missing integer in that array. Example: if you are passed [0,1,2,3,5],
 // this is an array between 0 and 5, it is sorted. However, the number 4 is missing. Your function needs to return 4.
