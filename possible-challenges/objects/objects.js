@@ -68,16 +68,17 @@ var user = {
 }
 
 
+
 /*Above you're given a user object. Create a function called removeFalsy that loops through the user object and checks to make sure that each value is truthy.
 If it's not truthy, remove it from the object, then return the revised object. */
 
-function removeFalsy(arr) {
-    for(key in arr) {
-        if(arr[key] == false || arr[key] == null || arr[key] == undefined ) {
-            delete arr[key];
+function removeFalsy(obj) {
+    for(key in obj) {
+        if(obj[key] == false || obj[key] == null || obj[key] == undefined ) {
+            delete obj[key];
         }
     }
-    return arr
+    return obj
 }
 
 //Invoke the removeFalsy function. and save the result to a variable called cleanUser.
@@ -108,16 +109,6 @@ function personalize(obj) {
 
 //OBJECTS + FUNCTIONS
 
-//// Constructor functions
-//
-//function Rabbit(type) {
-//    this.type = type;
-//}
-//
-//var killerRabbit = new Rabbit("killer");
-//var blackRabbit = new Rabbit("black");
-//console.log(blackRabbit.type);
-//// → black
 
 
 
@@ -177,16 +168,47 @@ function isOldEnough(obj) {
 
 
 
-// Create a function called addRole that takes in a user object and a string. This string will represent the user's new role in the system (i.e. admin, creator, editor, visitor).
+// Create a function called addRole that takes in a user object and a string.
+// This string will represent the user's new role in the system (i.e. admin, creator, editor, visitor).
 // Create a new property on the user object called "role" and assign the passed in string to it, then return the updated user object.
 
-// Create a function called removeRole that takes in a user object. Delete the user's role property and return the updated user.
+function addRole(obj,str) {
+    obj.role = str;
+    return obj
+}
+
+
+// Create a function called zeroOut that take a user object and then loops over that object and changes all the values to 0
+
+
+function zeroOut(obj) {
+    for(key in obj) {
+        obj[key] = 0
+    }
+    return obj
+}
+
+
+
+//// Constructor functions
+//
+//function Rabbit(type) {
+//    this.type = type;
+//}
+//
+//var killerRabbit = new Rabbit("killer");
+//var blackRabbit = new Rabbit("black");
+//console.log(blackRabbit.type);
+//// → black
+
+
+
+
+
 
 // Create a function called unknownPerson that takes in a person object.
-// This person object will have properties such as name, age, gender, etc. Loop through all the properties of the object and set each value to "Unknown", then return the object.
+// This person object will have properties such as name, age, gender, etc.
+// Loop through all the properties of the object and set each value to "Unknown", then return the object.
 // For example, if "person" is {name: "Dolph L.", age: 33} then the function would return {name: "Unknown", age: "Unknown"}.
 
 
-// Create a function called truthyObject that takes in a user object.
-// This function should loop through the user object checking to make sure that each of its values is truthy.
-// If a value is not truthy then remove it from the object. Return the updated object after looping through it.
