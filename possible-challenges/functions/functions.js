@@ -79,9 +79,22 @@ console.log(reverse(32243));
 
 
 // Have the function exOh(str) take the str parameter being passed and return
-// true if there is an equal number of x's and o's, otherwise return false. Only these two letters will be entered in the string, no punctuation or numbers. For example: if str is "xooxxxxooxo" then the output should return false because there are 6 x's and 5 o's.
+// true if there is an equal number of x's and o's, otherwise return false.
+// Only these two letters will be entered in the string, no punctuation or numbers.
+// For example: if str is "oxooxxxxooxo" then the output should return false because there are 6 x's and 5 o's.
 
+function exOh(str) {
+    var  arrayX = [],
+        arrayO = [];
 
+    for(var i = 0; i < str.length; i++){
+        if(str[i] === 'x') arrayX.push(i);
+        if(str[i] === 'o') arrayO.push(i);
+    }
+    if(arrayX.length === arrayO.length) return true;
+    return false
+
+}
 
 
 
@@ -125,9 +138,6 @@ function longestWord(str)
 }
 
 console.log(longestWord('Dev Mountain is full of Functions'));
-
-
-
 
 
 

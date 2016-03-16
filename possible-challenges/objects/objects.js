@@ -81,12 +81,19 @@ function removeFalsy(obj) {
     return obj
 }
 
+
 //Invoke the removeFalsy function. and save the result to a variable called cleanUser.
  var cleanUser= removeFalsy(user)
 
+// TEST
+
+// var invoke = removeFalsy({ name: 'ben callis',   gender: '',  username: 'perfectStorm1', email: 'perfectStorm1@gmail.com',  pwHash: 'U+Ldlngx2BYQk', age: 22})
+//var result = removeFalsy.hasOwnProperty('gender') should equal false
 
 
-// Code Here
+
+
+
 
 //Once you get your truthy object, create a function called personalize that changes the remaining values in
 // cleanUser to be: name: 'Ryan', pwHash: '43df90w_h', username: 'ryanleeeallred'.
@@ -148,6 +155,13 @@ function updateEmail(obj, str) {
     return obj
 }
 
+var result = updateEmail({ name: 'ben callis',   gender: 'male',  username: 'perfectStorm1', email: 'perfectStorm1@gmail.com',  pwHash: 'U+Ldlngx2BYQk', age: 22}, 'somenewemail')
+
+
+
+
+
+
 
 
 
@@ -174,8 +188,15 @@ function isOldEnough(obj) {
 
 function addRole(obj,str) {
     obj.role = str;
-    return obj
+    return obj.role
 }
+
+// TEST
+//var result = addRole({}, 'admin')
+
+
+
+
 
 
 // Create a function called zeroOut that take a user object and then loops over that object and changes all the values to 0
@@ -188,19 +209,7 @@ function zeroOut(obj) {
     return obj
 }
 
-
-
-//// Constructor functions
-//
-//function Rabbit(type) {
-//    this.type = type;
-//}
-//
-//var killerRabbit = new Rabbit("killer");
-//var blackRabbit = new Rabbit("black");
-//console.log(blackRabbit.type);
-//// → black
-
+var isZero = zeroOut({ name: 'ben callis',   gender: 'male',  username: 'perfectStorm1', email: 'perfectStorm1@gmail.com',  pwHash: 'U+Ldlngx2BYQk', age: 22}, 'somenewemail')
 
 
 
@@ -210,5 +219,4 @@ function zeroOut(obj) {
 // This person object will have properties such as name, age, gender, etc.
 // Loop through all the properties of the object and set each value to "Unknown", then return the object.
 // For example, if "person" is {name: "Dolph L.", age: 33} then the function would return {name: "Unknown", age: "Unknown"}.
-
 

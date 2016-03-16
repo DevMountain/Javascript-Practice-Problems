@@ -234,6 +234,8 @@ users.push(user1,user2,user3);
 
 
 
+
+
 /*
  Now let's say that Tyler decided to delete his account. Loop through your array of
  objects until you find Tyler's account (use tylermcginnis33@gmail.com to find him).
@@ -252,10 +254,10 @@ function deleteUser(array, property, value) {
     return array;
 }
 
-
-deleteUser(users,'email','bencallis1@gmail.com');
-
-
+// TEST
+//deleteUser(users,'email','bencallis1@gmail.com');
+//
+//var invoke = deleteUser([{name:'Tyler McGinnis',email:'tylermcginnis33@gmail.com',password:'iLoveJavaScript', username:'infiniteLoop', userId: 12345678}, {name:'Jeremy Robertson',email:'jeremy@devmounta.in',password:'somethingAboutCats',username: 'JR-4Life',userId: 1234567891011},{name:'Ben Callis', email:'bencallis1@gmail.com',password:'loveFrontEnd23',username:'bencallis1', userId: 123456}], 'email','bencallis1@gmail.com' );
 
 
 
@@ -278,9 +280,13 @@ function updateUserEmail(array, property, value, newEmail) {
 
 }
 
-updateUserEmail(users, 'userId', 123456, 'something@someone.com');
 
 
+
+// TEST
+//var invoke2 = updateUserEmail([{name:'Tyler McGinnis',email:'tylermcginnis33@gmail.com',password:'iLoveJavaScript', username:'infiniteLoop', userId: 12345678}, {name:'Jeremy Robertson',email:'jeremy@devmounta.in',password:'somethingAboutCats',username: 'JR-4Life',userId: 1234567891011},{name:'Ben Callis', email:'bencallis1@gmail.com',password:'loveFrontEnd23',username:'bencallis1', userId: 123456}],  'userId', 123456, 'something@someone.com' );
+//
+//updateUserEmail(users, 'userId', 123456, 'something@someone.com');
 
 
 
@@ -302,7 +308,10 @@ function changePassword(array, property, value, newPassword) {
 
 }
 
-changePassword(users, 'userId', 123456, 'thinkinAboutClouds');
+// TEST
+//var invoke3 = changePassword([{name:'Tyler McGinnis',email:'tylermcginnis33@gmail.com',password:'iLoveJavaScript', username:'infiniteLoop', userId: 12345678}, {name:'Jeremy Robertson',email:'jeremy@devmounta.in',password:'somethingAboutCats',username: 'JR-4Life',userId: 1234567891011},{name:'Ben Callis', email:'bencallis1@gmail.com',password:'loveFrontEnd23',username:'bencallis1', userId: 123456}], 'userId', 123456, 'thinkinAboutClouds' );
+//
+//changePassword(users, 'userId', 123456, 'thinkinAboutClouds');
 
 
 
@@ -312,15 +321,15 @@ function changeEmailWithMap(array, value, newEmail) {
         return arr.userId;
     }).indexOf(value);
 
-    array[index].email = newEmail
+    array[index].email = newEmail;
     return array
 
 }
 
-changeEmailWithMap(users, 'userId', 123456, 'thinkinAboutClouds@gmail.com');
-
-
-
+// TESTS
+//var invoke = changeEmailWithMap([{name:'Tyler McGinnis',email:'tylermcginnis33@gmail.com',password:'iLoveJavaScript', username:'infiniteLoop', userId: 12345678}, {name:'Jeremy Robertson',email:'jeremy@devmounta.in',password:'somethingAboutCats',username: 'JR-4Life',userId: 1234567891011},{name:'Ben Callis', email:'bencallis1@gmail.com',password:'loveFrontEnd23',username:'bencallis1', userId: 123456}], 123456, 'thinkinAboutClouds@gmail.com');
+//
+//changeEmailWithMap(users, 123456, 'thinkinAboutClouds@gmail.com');
 
 
 
@@ -333,6 +342,48 @@ var index = users.map(function(e) {return e.userId;}).indexOf(123456);
 
 
 
-// Finish the function missingNo so that it takes in a sorted array of integers which contains all integers between 0 and N except one value,
+
+
+
+
+
+
+//
+// Write a function called updateUserInfo. This function will take 5 parameters array, property, value,
+// newEmail and newName. Think about the property as the userId that we are looking for and the value would
+// be the id passed in. Once you have found the index of the object you want to update then update the
+// email property value  to the newEmail and the name property value  to the newName
+
+
+function updateUserInfo(array, property, value, newEmail, newName) {
+    var i;
+    for(i = 0; i < array.length; i++ ) {
+        if(array[i][property] === value) {
+            array[i].email = newEmail;
+            array[i].name = newName;
+
+        }
+    }
+    return array
+
+
+}
+
+
+var invoke = updateUserInfo([{name:'Tyler McGinnis',email:'tylermcginnis33@gmail.com',password:'iLoveJavaScript', username:'infiniteLoop', userId: 12345678}, {name:'Jeremy Robertson',email:'jeremy@devmounta.in',password:'somethingAboutCats',username: 'JR-4Life',userId: 1234567891011},{name:'Ben Callis', email:'bencallis1@gmail.com',password:'loveFrontEnd23',username:'bencallis1', userId: 123456}], 'userId', 123456, 'thinkinAboutClouds@gmail.com', 'Billy Bob');
+
+
+
+// Finish the function missingNo so that it takes in a sorted array of integers which contains
+// all integers between 0 and N except one value,
 // and returns the missing integer in that array. Example: if you are passed [0,1,2,3,5],
 // this is an array between 0 and 5, it is sorted. However, the number 4 is missing. Your function needs to return 4.
+
+
+
+
+
+
+
+
+
