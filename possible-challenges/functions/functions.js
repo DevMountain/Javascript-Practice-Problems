@@ -36,9 +36,6 @@ function exponent(num, times) {
 }
 
 
-// Create a function that returns all the prime number up to a given number. That number is passed in a parameter
-
-
 
 
 
@@ -98,6 +95,24 @@ function exOh(str) {
 
 
 
+// Write a function that takes a string parameter and counts how many vowels the string has
+
+function vowelCount(str1)
+{
+    var vowels = 'aeiouAEIOU';
+    var count = 0;
+
+    for(var i = 0; i < str1.length ; i++)
+    {
+        if (vowels.indexOf(str1[i]) !== -1)
+        {
+            count += 1;
+        }
+
+    }
+    return count;
+}
+console.log(vowelCount("Devmountain is the Best place to learn how to code"));
 
 
 
