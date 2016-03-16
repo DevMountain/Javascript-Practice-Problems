@@ -284,6 +284,7 @@ updateUserEmail(users, 'userId', 123456, 'something@someone.com');
 
 
 
+
 // Write a function called changePassword that will loop through your users array and find a specific user.
 // After you find the user you are looking for update their password. To make this challenge more
 // realistic search for the user by a user id
@@ -302,6 +303,33 @@ function changePassword(array, property, value, newPassword) {
 }
 
 changePassword(users, 'userId', 123456, 'thinkinAboutClouds');
+
+
+
+
+function changeEmailWithMap(array, value, newEmail) {
+    var index = array.map(function(arr) {
+        return arr.userId;
+    }).indexOf(value);
+
+    array[index].email = newEmail
+    return array
+
+}
+
+changeEmailWithMap(users, 'userId', 123456, 'thinkinAboutClouds@gmail.com');
+
+
+
+
+
+
+
+// Here is another way to find the index of a property in an array of objects
+// Legit
+
+var index = users.map(function(e) {return e.userId;}).indexOf(123456);
+
 
 
 
