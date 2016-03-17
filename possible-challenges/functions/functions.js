@@ -156,6 +156,55 @@ console.log(longestWord('Dev Mountain is full of Functions'));
 
 
 
+//ADVANCED JAVASCRIPT FUNCTION PROBLEMS
+
+// HIGHER ORDER FUNCTIONS
+
+// Write a function that adds from two invocations
+// addTwo(3)(4) would equal 7
+function addTwo(x) {
+    return function(y) {
+        return x + y;
+    }
+
+}
+addTwo(3)(4);
+
+
+
+
+function add(x, y) {
+    return x + y;
+}
+
+
+
+// ADVANCED CLOSURE
+// write a function that takes a binary function like add or multipy and then make that function callable
+
+
+function callFunction(binary) {
+    return function(x) {
+        return function(y) {
+            return binary(x,y);
+        };
+    };
+}
+
+var addAnother = callFunction(add);
+addAnother(3)(4);
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Write a JavaScript function that generates all combinations of a string.
 
