@@ -1,3 +1,9 @@
+// Multiple Choice Questions
+
+// What is a binary function
+// What is a unary function
+
+
 
 
 // Create a function called myLoop that takes in two parameters,
@@ -156,12 +162,13 @@ console.log(longestWord('Dev Mountain is full of Functions'));
 
 
 
-//ADVANCED JAVASCRIPT FUNCTION PROBLEMS
+
 
 // HIGHER ORDER FUNCTIONS
 
 // Write a function that adds from two invocations
 // addTwo(3)(4) would equal 7
+
 function addTwo(x) {
     return function(y) {
         return x + y;
@@ -178,7 +185,9 @@ function add(x, y) {
 }
 
 
-
+function mul(x,y) {
+    return x * y;
+}
 // ADVANCED CLOSURE
 // write a function that takes a binary function like add or multipy and then make that function callable
 
@@ -196,13 +205,136 @@ addAnother(3)(4);
 
 
 
+// CURRY UP!!!
+
+
+// Write a function that takes an argument and a function, and returns a function that
+// can supply a second argument.
+// This is known as currying
+
+//add3 = curryFunc(add,3)
+//add3(4) // 7
+
+function curryFunc(func,firstArg) {
+    return function(secondArg) {
+        return func(firstArg, secondArg)
+    };
+}
+
+add3 = curryFunc(add,3)
+add3(4)
+
+
+// OR
+
+function curry(func,firstArg) {
+    return callFunction(func)(firstArg)
+}
+
+
+
+// If you wanted to do the same thing but with any number of arguments then
+// I wouldn't suggest this because it's ugly and we are forcing args to be an array
+function aBunchOfCurry(func) {
+    var slice = Array.prototype.slice,
+        args = slice.call(arguments, 1);
+    return function() {
+        return func.apply(
+            null, args.concat(slice.call(arguments,0))
+        )
+    };
+}
+
+
+// ES6
+
+//function curryES6(func, ...first){
+//    return function (...second) {
+//        return func(...first, ...second);
+//    };
+//}
+
+
+
+// Thinking in terms of functional programming
+
+var inc1 = add(1);
+var inc2 = callFunction(add)(1);
+var inc3 = curryFunc(add,1);
 
 
 
 
 
 
+// Write a methodize, a function that converts a binary function to a method
+// This is a great way to reuse a function
+//Lets say we have a function that is only slightly different than a previous function we have written
+// We could use this approach to solve that propblem instaed of rewriting a another function
 
+
+
+function methodize(func) {
+    return function(y) {
+        return func(this, y);
+    };
+}
+
+Number.prototype.add = methodize(add);
+(3).add(4) // 7
+
+
+
+// Write demethodize, a function that converts a method to a binary function
+// You will need to use call
+
+//demethodize(Number.prototype.add)(5,6) //11
+
+function demethodize(func) {
+    return function(that, y) {
+        return func.call(that, y);
+    };
+}
+demethodize(Number.prototype.add)(5,6)
+
+
+/// If you wanted to do this in ES6 you would just use the spread operator
+
+
+
+
+
+
+// Write a function called twice that takes a binary function 'add, multiply'
+// and returns a unary function 'a function with only on argument' that passes it's argument to the binary function twice
+
+function twice(binaryFunc) {
+    // Returns a function with only 1 argument
+    return function(a) {
+        // Here we are calling the binaryFunc with our argument twice
+        return binaryFunc(a,a);
+    };
+}
+
+
+var double = twice(add);
+double(11) // Should output 22
+
+var square = twice(mul);
+square(11) // Should out put 121
+
+
+
+/// Write a function called composeu that takes two unary functions and returns
+// a unary function that calls them both
+
+function composeu(unary1, unary2) {
+    return function(a) {
+        return unary2(unary1(a));
+    }
+}
+
+composeu(double,square)(3) // Should output  36
 
 
 
