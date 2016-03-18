@@ -1,3 +1,132 @@
+/*****************************
+
+ ** IMPLICIT BINDING - left of the dot at call time
+ ** EXPLICIT BINDING
+ ** new BINDING
+ ** window BINDING
+
+
+*****************************/
+
+
+
+
+/*******
+
+ IMPLICIT BINDING - left of the dot at call time
+
+ *******/
+
+var whoAmI = {
+    firwstName: 'Ben',
+    lastName: 'Callis',
+    age: 28,
+    sayName: function() {
+        console.log(this.name);
+    }
+}
+
+
+whoAmI.sayName(); // This is Implicit binding the this keyword is looking to the left to know its context
+
+
+
+var sayNameMixin = function(obj) {
+    obj.sayName = function() {
+        console.log(this.name)
+    }
+}
+
+var myName = {
+    name: 'sally',
+    age: '27'
+}
+
+var yourName = {
+    name: 'Bob',
+    age: '24'
+}
+
+sayNameMixin(myName);
+sayNameMixin(yourName);
+
+myName.sayName()
+yourName.sayName()
+
+
+
+
+
+
+function Person(name, age) {
+    return {
+        name: name,
+        age: age,
+        sayName: function() {
+            console.log(this.name);
+        },
+        mother: {
+            name: 'Robin',
+            sayName: function() {
+                console.log(this.name)
+            }
+        }
+
+    };
+};
+
+var sally = Person('Sally', 27);
+sally.sayName() // sally
+sally.mother.sayName() // Robin
+
+
+
+
+
+/*******
+
+ EXPLICIT BINDING
+
+ call,apply, bind
+
+ *******/
+
+
+
+var myName = function() {
+    console.log('Hi My Name is ' + this.name);
+}
+
+var languages = ['javascritpt', 'c#' , 'Ruby'];
+var chris = {
+    name: 'chris',
+    age: 36
+}
+
+myName.call(chris)
+
+
+
+function myNameWithArgs(lang1,lang2, lang3) {
+    console.log('Hi My Name is ' + this.name + 'I like to code in these languages' + '  '+ lang1 + ', ' +  lang2 + '  and  ' +  lang3);
+}
+
+myNameWithArgs.call(chris,languages[0], languages[1], languages[2]); // This is painful good thing javascript has .apply
+
+
+myNameWithArgs.apply(chris,languages) // We can jsut pass in the arguments here as an array
+
+myNameWithArgs.bind(chris,languages[0], languages[1], languages[2]); // Same thing as call but it returns us a function
+
+
+
+
+
+
+
+
+
+
 
 // Create an object called 'user' which has the following properties:
 // username --> which is a string
@@ -81,16 +210,69 @@ var finalUsername = user.getUsername();
 
 
 
-var person = {
-    firstName   :"Sally",
-    lastName    :"Smith",
-    showFullName:function () {
-        console.log (this.firstName + " " + this.lastName);
-    }
-​
+
+
+
+/// Using Call
+
+// functionname.call(obj, functionArguments)
+// The first argument must be the object
+
+
+var user1 = {
+    username: 'BillyBob',
+    age: 19,
+    email: 'billybob21@gmail.com'
+
+
+};
+var user2 = {
+    username: 'iliketurtles',
+    age: 13,
+    email: 'iliketurtles@gmail.com'
+
+
+};
+
+getUsername = function(){
+    return this.username;
 }
-​
-person.showFullName ();
+
+
+var getUser = getUsername.call(user1);
+var getUser2 = getUsername.call(user2);
+
+
+
+
+
+
+
+// APPLY
+
+var obj = {num:5};
+var obj2 = {num:10};
+
+var nums = [1,2,3];
+
+function addThis(a,b,c) {
+    return this.num + a + b + c;
+}
+
+
+console.log(addThis.apply(obj,nums));
+console.log(addThis.apply(obj2,nums));
+
+
+
+
+
+// Bind
+
+var bound = addThis.bind(obj);
+
+
+console.dir(bound(1,2,3));
 
 
 
@@ -119,11 +301,6 @@ cars.showData();
 
 
 
-
-
-
-
-
 function greet(gender,age,name) {
     var salutation = gender === 'male' ? 'Mr. ' : 'Ms. ';
 
@@ -138,65 +315,3 @@ function greet(gender,age,name) {
 var greetAnAdultMale = greet.bind(null, "male", 45)
 
 greetAnAdultMale('ben callis');
-
-
-
-
-/// Using Call
-// functionname.call(obj, functionArguments)
-// The first argument must be the object
-
-
-var user1 = {
-    username: 'BillyBob',
-    age: 19,
-    email: 'billybob21@gmail.com'
-
-
-};
-var user2 = {
-    username: 'iliketurtles',
-    age: 13,
-    email: 'iliketurtles@gmail.com'
-
-
-};
-
-getUsername = function(){
-    return this.username;
-}
-
-
-var getUser1 = getUsername.call(user1);
-var getUser2 = getUsername.call(user2);
-
-
-
-
-
-
-
-// APPLY
-
-var obj = {num:5};
-var obj2 = {num:10};
-var nums = [1,2,3];
-
-function addThis(a,b,c) {
-    return this.num + a + b + c;
-}
-
-
-console.log(addThis.apply(obj,nums));
-console.log(addThis.apply(obj2,nums));
-
-
-
-
-
-// Bind
-
-
-
-
-
