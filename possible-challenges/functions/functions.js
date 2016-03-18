@@ -285,6 +285,8 @@ Number.prototype.add = methodize(add);
 
 
 
+
+
 // Write demethodize, a function that converts a method to a binary function
 // You will need to use call
 
@@ -439,12 +441,6 @@ temp = revocable(alert);
 temp.invoke(7); // alert 7
 temp.revoke();
 temp.invoke(8) // throw
-
-
-
-
-
-
 
 
 
