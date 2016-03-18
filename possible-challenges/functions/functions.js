@@ -6,7 +6,7 @@
 
 
 
-// Create a function called myLoop that takes in two parameters,
+// Create a function called makeBigger that takes in two parameters,
 // the first parameter should represent a starting number and the second is how many times the starting number should be incremented.
 
 function makeBigger(num1, num2) {
@@ -17,6 +17,7 @@ function makeBigger(num1, num2) {
     }
     return newNum + num1
 }
+
 
 
 
@@ -31,9 +32,7 @@ function makeBigger(num1, num2) {
 
 
 
-
-
-//Create a function called exponent that takes in two parameters,
+// Create a function called exponent that takes in two parameters,
 // the first parameter should represent a number to be multiplied against itself and the second parameter should represent how many
 // times it is multiplied by itself. The function should return the result of this operation. exponent(2,3) should return 8
 
@@ -45,7 +44,8 @@ function exponent(num, times) {
 
 
 
-// Write a function that accepts 1 paremter and then checks if that parameter is a prime number
+// Write a function that accepts 1 parameter and then checks if that parameter is a prime number
+
 function isPrime(num) {
     if(num < 2) return false;
     for (var i = 2; i < num; i++) {
@@ -338,7 +338,126 @@ composeu(double,square)(3) // Should output  36
 
 
 
+// Write a function called composeb that takes two binary functions
+// and returns a function that calls them both
+
+function composeb(binary1, binary2) {
+    return function(a,b,c) {
+        // We are passing in the result of binary1(a,b) and then passing in c to binary 2 as arguments
+        return binary2(binary1(a,b), c);
+    }
+
+}
+
+composeb(add, mul)(2,3,5) // Should output 25
+
+
+
+
+
+// Write a function that allows another function to only be called once
+
+// This is a good way to make sure a function is only called once
+// Think banking or security applications
+// The nice thing about composing this function with the add function we already wrote is we dont have to rewrite the add the function again
+
+
+function once(func) {
+    return function(){
+        var f = func;
+        func = null; // Here we are nulling out the func after we set the func to f that way if we try to call the func again it's null so it will not work
+        return f.apply(
+            this,
+            arguments
+        );
+    };
+}
+
+// You could also do the same thing using a count variable or a true/false variable
+
+
+
+addOnce = once(add);
+addOnce(3,4);  // 7
+addOnce(3,4);  // throws error
+
+
+
+
+
+/// CLOSURE PROBLEM
+
+// Write a factory function that returns two functions that implement up/down counter
+
+function counterFactory(value) {
+    return {
+        inc: function() {
+            value += 1;
+            return value;
+        },
+        dec: function() {
+            value -= 1;
+            return value;
+        }
+    }
+
+}
+
+
+counter = counterFactory(10);
+counter.inc(); //11
+counter.dec(); // 10
+
 //Write a JavaScript function that generates all combinations of a string.
+
+
+
+// Make a revocable function that takes a function
+// and returns a revoke function that denies access to the nice function
+// and an invoke function that can invoke the function  until it is revoked
+
+
+// An example of using something like this would be if you wanted to timeout a function
+// Where when the time ran out the function would no longer work and would throw a error
+// Use the module pattern
+
+function revocable(func) {
+    return {
+        invoke: function() {
+            return func.apply(
+                this,
+                arguments
+            );
+        },
+        revoke: function() {
+            nice = null;
+        }
+     };
+}
+
+temp = revocable(alert);
+temp.invoke(7); // alert 7
+temp.revoke();
+temp.invoke(8) // throw
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function substrings(str1)
 {
@@ -367,4 +486,92 @@ function substrings(str1)
     console.log(combi.join("\n"));
 }
 
-substrings("dog");
+substrings("Bob");
+
+
+
+
+
+
+
+
+
+
+// ADVANCED JAVASRIPT/INTRO TO FUNCTIONAL
+
+
+// The unit function will create objects that contain the bind method
+// The bind method takes a function and receives the value that was used to initialize the unit
+// and passes that value to the function.
+
+//// Identity MONAD
+//
+//function MONAD() {
+//    return function unit(value) {
+//        var monad = Object.create(null);
+//        monad.bind = function (func) {
+//            return func(value);
+//        };
+//        return monad;
+//    };
+//}
+//
+//// To call it
+//
+//var unit = MONAD();
+//var monad = unit('Hello world.');
+//monad.bind(alert)
+
+
+
+
+function MONAD() {
+    var prototype = Object.create(null);
+    function unit(value) {
+        var monad = Object.create(prototype);
+        monad.bind = function (func) {
+            return func(value);
+        };
+        return monad;
+    }
+    unit.method = function(name, func) {
+        prototype[name] = func;
+        return unit;
+    };
+    return unit
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Todo write a regular javascript fucntion that loops over an array then have the student change that to recursively dp the same thing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

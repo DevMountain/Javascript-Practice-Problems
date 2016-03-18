@@ -156,6 +156,22 @@ var bunchOfArguments = add(1,2,3,4,5,6,7);
 
 
 
+// Fun example of closure, this function would fade the background of a element id thats passed to it
+
+function fade(id) {
+    var dom = document.getElementById(id),
+        level = 1
+    function step() {
+        var h = level.toString(16);
+        dom.style.backgroundColor = '#FFFFFF' + h + h;
+        if (level < 15) {
+            level += 1;
+            setTimeout(step, 100);
+        }
+    }
+    setTimeout(step, 100)
+}
+
 
 
 
