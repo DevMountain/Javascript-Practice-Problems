@@ -17,6 +17,8 @@
 
  *******/
 
+
+
 var whoAmI = {
     firwstName: 'Ben',
     lastName: 'Callis',
@@ -103,13 +105,16 @@ var chris = {
     age: 36
 }
 
-myName.call(chris)
+
 
 
 
 function myNameWithArgs(lang1,lang2, lang3) {
     console.log('Hi My Name is ' + this.name + 'I like to code in these languages' + '  '+ lang1 + ', ' +  lang2 + '  and  ' +  lang3);
 }
+
+
+myName.call(chris)
 
 myNameWithArgs.call(chris,languages[0], languages[1], languages[2]); // This is painful good thing javascript has .apply
 
@@ -155,34 +160,6 @@ var result = user.getUserName();
 
 
 
-// Write the function called Car that will make the following function invocations work properly.
-// Object keys should be: make, model, year, move, and moveCar
-
-function Car (make,model,year, moveCar) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
-    this.move = 0;
-    this.moveCar = function() {
-       this.move += 10;
-    }
-
-}
-
-// These are the function invocations that need to work:
-
-var prius = new Car('Toyota', 'Prius', 2011);
-var mustang = new Car('Ford', 'Mustang', 2013);
-
-
-prius.moveCar();  //increments prius' move property by 10. Returns the new move property.
-mustang.moveCar(); //increments prius' move property by 10. Returns the new move property.
-
-// Hint, you'll need to write a moveCar function (method) which is added to every object that is being returned from the Car function.
-// You'll also need to use the 'this' keyword properly in order to make sure you're invoking moveCar on the correct object (prius vs mustang).
-
-
-
 
 
 // Below you're given an object, a function, and a function invocation.
@@ -204,12 +181,12 @@ var user = {
 
 var finalUsername = user.getUsername();
 
+
+
+
+
+
 //Fix the getUsername invocation using .bind so that the user object will be the focal object when getUsername is called. *Hint: .bind returns a function.*
-
-
-
-
-
 
 
 
@@ -241,9 +218,6 @@ getUsername = function(){
 
 var getUser = getUsername.call(user1);
 var getUser2 = getUsername.call(user2);
-
-
-
 
 
 
@@ -312,6 +286,46 @@ function greet(gender,age,name) {
     }
 }
 
+
+
+/*******
+
+ new Binding
+
+ window Binding
+
+ *******/
+
+
+
+
+
 var greetAnAdultMale = greet.bind(null, "male", 45)
 
 greetAnAdultMale('ben callis');
+
+
+// Write the function called Car that will make the following function invocations work properly.
+// Object keys should be: make, model, year, move, and moveCar
+
+function Car (make,model,year, moveCar) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.move = 0;
+    this.moveCar = function() {
+        this.move += 10;
+    }
+
+}
+
+// These are the function invocations that need to work:
+
+var prius = new Car('Toyota', 'Prius', 2011);
+var mustang = new Car('Ford', 'Mustang', 2013);
+
+
+prius.moveCar();  //increments prius' move property by 10. Returns the new move property.
+mustang.moveCar(); //increments prius' move property by 10. Returns the new move property.
+
+

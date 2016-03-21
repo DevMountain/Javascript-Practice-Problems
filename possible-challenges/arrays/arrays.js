@@ -136,8 +136,6 @@ function oddsAndEvens(nums) {
  }
 
 
-
-
 var num1 = Math.floor(Math.random() * (30 - 0) + 0);
 var num2 = Math.floor(Math.random() * (30 - 0) + 0);
 var arr1 = [];
@@ -348,7 +346,8 @@ var index = users.map(function(e) {return e.userId;}).indexOf(123456);
 
 
 
-//
+
+
 // Write a function called updateUserInfo. This function will take 5 parameters array, property, value,
 // newEmail and newName. Think about the property as the userId that we are looking for and the value would
 // be the id passed in. Once you have found the index of the object you want to update then update the
@@ -381,6 +380,17 @@ var invoke = updateUserInfo([{name:'Tyler McGinnis',email:'tylermcginnis33@gmail
 
 
 
+
+//// ADVANCED
+
+//Todo write a regular javascript fucntion that loops over an array then have the student change that to recursively dp the same thing
+
+// Asynchronous Programming:
+
+// array forEach
+// array Map
+// array Filter
+// array concat all
 
 
 

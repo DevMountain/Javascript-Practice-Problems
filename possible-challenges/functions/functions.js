@@ -446,15 +446,6 @@ temp.invoke(8) // throw
 
 
 
-
-
-
-
-
-
-
-
-
 function substrings(str1)
 {
     var array1 = [];
@@ -482,7 +473,7 @@ function substrings(str1)
     console.log(combi.join("\n"));
 }
 
-substrings("Bob");
+substrings("Dev");
 
 
 
@@ -551,7 +542,6 @@ function MONAD() {
 
 
 
-//Todo write a regular javascript fucntion that loops over an array then have the student change that to recursively dp the same thing
 
 
 
