@@ -274,8 +274,6 @@ function updateUserEmail(array, property, value, newEmail) {
         }
     }
     return array
-
-
 }
 
 
@@ -298,12 +296,9 @@ function changePassword(array, property, value, newPassword) {
     for(i = 0; i < array.length; i++ ) {
         if(array[i][property] === value) {
             array[i].password = newPassword;
-
         }
     }
     return array
-
-
 }
 
 // TEST

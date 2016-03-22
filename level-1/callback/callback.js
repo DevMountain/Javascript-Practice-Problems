@@ -54,6 +54,9 @@ var user = {
     }
 };
 
+// Write a funciton called getUserInfo that take a firstName, lastName, callback and callbackObj as parameters
+// Inside the getUserInfo function invoke the callback with the javascrit apply method the first parameter should be the callbackObj
+// and the second parameter is a array with firstName and lastName
 
 function getUserInfo(firstName, lastName, callback, callbackObj ) {
     callback.apply(callbackObj, [firstName, lastName]);
@@ -98,13 +101,15 @@ el.addEventListener("click", showMessageOnButtonClick);
 // Inside the setTimeout return the callback invoked, then invoke the loadMobileScript with two parameters true and loadScript
 
 function fullName(firstName, lastName, callback){
-    console.log("My name is " + firstName + " " + lastName);
-    callback(lastName);
+    return callback(firstName, lastName);
 }
 
-fullName("Ben", "Callis", function(ln) {
-    console.log('Welcome Mr. ' + ln);
-});
+
+function welcomeMessage(fn,ln) {
+    return 'Welcome To DevMountain ' + fn + ' ' + ln;
+}
+
+fullName("Ben", "Callis", welcomeMessage);
 
 
 
@@ -128,18 +133,18 @@ callbackString = "call";
 
 
 var names = ['Cahlan', 'Jeremy', 'Colt', 'Jeff', 'Tyler', 'Ben'];
-var thePersonName = '';
 
 function first(arr,cb) {
-    cb(arr[0]);
+    return cb(arr[2]);
 }
 
 var firstName = function(firstName){
-    thePersonName = firstName;
+    return firstName;
 
 };
 
 first(names, firstName);
+
 
 // Write a function called last that correctly invokes the callback function and saves the result to the sentence variable.
 
@@ -165,30 +170,39 @@ multiply(4, 3, function(answer){
 
 
 
-// Write the contain function so that it returns true if 'Colt' is found in the names array
+// Write the contains function so that it returns true if 'Colt' is found in the names array
 // and false if it is not. Save the response to the message variable
 
 
 // Code Here for contains
 
+
+var foundUser = false;
+
+function contains(arr,name,cb) {
+    for(var i = 0; i < arr.length; i++ ) {
+        if(arr[i] === name) {
+            cb(true)
+        }
+    }
+}
+
+
 contains(names, 'Colt', function(result){
-    var message;
     if(result === true){
-        return 'Colt is in the array';
+        foundUser = true ;
     } else {
-        return 'Colt is not in the array';
+        foundUser = false ;
     }
 });
 
 
 
 
-//Write the getUserById function so completes the message in the function call with the information from the correct use in the user array
+// Write the getUserById function so completes the message in the function call with the information from the correct user in the user array
 // and saves the result to the variable sentence.
 
-
-//Code Here for getUserById
-
+var email = '';
 var someUsers = [
     {
         id: '12d',
@@ -210,11 +224,21 @@ var someUsers = [
     },
 ];
 
-getUserById(someUsers, '16t', function(user){
-    var sentence;
-    return 'The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address;
-});
 
+function getUserById(array, value, cb) {
+    for(var i = 0; i < array.length; i += 1) {
+        if(array[i].id === value) {
+           cb(array[i])
+
+        }
+
+    }
+}
+
+getUserById(someUsers, '16t', function(user){
+  email =  user.email
+
+});
 
 
 // Write the unique function so that it removes all duplicate strings from the names array,
@@ -228,5 +252,7 @@ unique(moreNames, function(uniqArr){
     var sentence;
     return 'The new names array with all the duplicate items removed is ' + uniqArr;
 });
+
+
 
 
