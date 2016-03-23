@@ -245,9 +245,23 @@ getUserById(someUsers, '16t', function(user){
 // invokes the callback function and saves the result to the variable sentence.
 
 
-// Code here for unique
+function unique(arr,cb) {
+    var out=[],
+        obj={};
+
+    for (var i = 0; i < arr.length; i++) {
+        console.log( obj[arr[i]])
+        obj[arr[i]] = 0;
+    }
+
+    for (i in obj) {
+        out.push(i);
+    }
+    return cb(out);
+}
 
 var moreNames = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
 unique(moreNames, function(uniqArr){
     var sentence;
     return 'The new names array with all the duplicate items removed is ' + uniqArr;
@@ -255,4 +269,25 @@ unique(moreNames, function(uniqArr){
 
 
 
+// CALLBACK HELL
 
+// continuation of code
+// Inversion of control
+
+function one(cb) {
+    console.log("one")
+    setTimeout(cb, 1000)
+}
+
+function two(cb) {
+    console.log("one")
+    setTimeout(cb, 1000)
+}
+
+function three(cb) {
+    console.log("one")
+}
+
+one(function() {
+    two(three);
+});
