@@ -244,27 +244,27 @@ getUserById(someUsers, '16t', function(user){
 // Write the unique function so that it removes all duplicate strings from the names array,
 // invokes the callback function and saves the result to the variable sentence.
 
+var someNames = ['Tyler','Jeremy', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Ben', 'Cahlan'];
 
 function unique(arr,cb) {
-    var out=[],
-        obj={};
+    var out = [],
+        obj = {};
 
     for (var i = 0; i < arr.length; i++) {
-        console.log( obj[arr[i]])
         obj[arr[i]] = 0;
     }
 
-    for (i in obj) {
-        out.push(i);
+    for (key in obj) {
+        out.push(key);
     }
     return cb(out);
 }
 
-var moreNames = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
-unique(moreNames, function(uniqArr){
-    var sentence;
-    return 'The new names array with all the duplicate items removed is ' + uniqArr;
+
+unique(someNames, function(uniqArr){
+
+    return uniqArr;
 });
 
 

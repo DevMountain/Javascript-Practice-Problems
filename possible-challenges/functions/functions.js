@@ -235,6 +235,7 @@ function curry(func,firstArg) {
 
 // If you wanted to do the same thing but with any number of arguments then
 // I wouldn't suggest this because it's ugly and we are forcing args to be an array
+
 function aBunchOfCurry(func) {
     var slice = Array.prototype.slice,
         args = slice.call(arguments, 1);
@@ -336,7 +337,7 @@ function composeu(unary1, unary2) {
     }
 }
 
-composeu(double,square)(3) // Should output  36
+composeu(double,square)(3);  // Should output  36
 
 
 
