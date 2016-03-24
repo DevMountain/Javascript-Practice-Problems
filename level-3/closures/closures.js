@@ -1,6 +1,7 @@
 
 // Inside the return create a  property called publicMethod with a value that is a function that has 3 parameters a name, age and location,
 // this function returns privateMethod which also has 3 parameters a name, age and location.
+
 var module2 = (function() {
 
     var privateMethod = function(name, age, location){
@@ -91,6 +92,7 @@ var numberFactory = function(num1) {
 var times5 = numberFactory(5);
 
 times5(3) // this would return 1
+
 /* Make the following code work:
 
  funcArray[0]() //returns 0
@@ -219,7 +221,7 @@ publish("10 Tips for JavaScript Developers", "Jane Doe", articles);
 function printFruits(fruits){
     for (var i = 0; i &lt; fruits.length; i++) {
         (function(){
-            var current = i;                    // define new variable that will hold the current value of "i"
+            var current = i;        // define new variable that will hold the current value of "i"
             setTimeout( function(){
                 console.log( fruits[current] );   // this time the value of "current" will be different for each iteration
             }, current * 1000 );

@@ -34,6 +34,7 @@ var functionFactory = function(num1) {
 }
 
 //
+
 //Write a function, saySomething that takes an parameter  `string`.
 //This function contains another function, `words` which returns string and is immediately called inside the function `saySomething`.
 
@@ -89,7 +90,7 @@ var numberFactory = function(num1) {
 
 var times5 = numberFactory(5);
 
-times5(3) // this would return 15
+times5(3)  // this would return 15
 
 
 
