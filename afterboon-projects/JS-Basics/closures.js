@@ -174,7 +174,7 @@ for (var i = 0; i <= 5; i++) {
 
 
 var funcArray = [];
-for( var i = 0; i < 3; i++ ){
+for( var i = 0; i <= 3; i++ ){
     (function(i){
         funcArray.push(
             function(){
@@ -194,7 +194,7 @@ for( var i = 0; i < 3; i++ ){
   funcArray[2]() //2
   funcArray[3]() //3
   funcArray[4]() //4
-  funcArray[5]() //5
+  funcArray[5]() // this should throw
 
   *Hint: Don't let this fool you. Break down what's really happening here.
 */

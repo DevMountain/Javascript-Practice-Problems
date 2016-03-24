@@ -72,15 +72,6 @@ firstNameFarmer('sally')
 
 
 
-// Use closure to console.log the numbers 1 - 5. You will need to use a javascript IFFE
-
-for(var i = 1; i<=5; i++) {
-
-}
-
-
-
-
 var numberFactory = function(num1) {
     return function(num2) {
         return num1 * num2;
