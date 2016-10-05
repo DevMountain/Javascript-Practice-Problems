@@ -126,13 +126,6 @@ myNameWithArgs.bind(chris,languages[0], languages[1], languages[2]); // Same thi
 
 
 
-
-
-
-
-
-
-
 // Create an object called 'user' which has the following properties:
 // username --> which is a string
 // email --> which is a string
@@ -154,12 +147,6 @@ var user = {
 //Now, invoke the getUsername method on the user object and save the username that is returned to the variable 'result';
 
 var result = user.getUserName();
-
-
-
-
-
-
 
 
 // Below you're given an object, a function, and a function invocation.
@@ -210,6 +197,7 @@ var user2 = {
 
 
 };
+
 
 getUsername = function(){
     return this.username;
@@ -270,8 +258,6 @@ var cars = {
 
 cars.showData = myMethods.showName.bind(cars)
 cars.showData();
-
-
 
 
 

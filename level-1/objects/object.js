@@ -58,7 +58,6 @@ function checkName(name) {
 
 
 
-
 var backpack = {
 
 }

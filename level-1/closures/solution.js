@@ -95,6 +95,7 @@ var smoothy = (function() {
     };
 
     // Anything that is being returned is made public and can be invoked from outside our lexical scope
+
     return {
         makeSmoothy: function (name,age,location) {
             return blend(name,age,location)
@@ -104,13 +105,6 @@ var smoothy = (function() {
 })();
 
 smoothy.makeSmoothy('ben', 29, 'UTAH');
-
-
-
-
-
-
-
 
 
 //pass in a argument to the private function

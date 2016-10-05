@@ -44,8 +44,6 @@ mySandwich('ham', 'cheese');
 
 
 
-
-
 var user = {
     id: 1945323,
     fullName: 'null',
@@ -87,11 +85,12 @@ loadMobileScript(true, function() {
 // Here is an axample of using callbacks and event listerns
 // This would be used on a button click
 
+var el = document.getElementById("btn");
+
 function showMessageOnButtonClick(){
     alert('Woohoo!');
 }
 
-var el = document.getElementById("btn");
 el.addEventListener("click", showMessageOnButtonClick);
 ​
 
@@ -117,6 +116,7 @@ fullName("Ben", "Callis", welcomeMessage);
 var callbackString;
 
 //Write code here that will make the variable 'sum' the string of "callback".
+
 setTimeout(function(){
     callbackString += "back";
     done();
@@ -241,6 +241,8 @@ getUserById(someUsers, '16t', function(user){
 });
 
 
+
+
 // Write the unique function so that it removes all duplicate strings from the names array,
 // invokes the callback function and saves the result to the variable sentence.
 
@@ -263,9 +265,12 @@ function unique(arr,cb) {
 
 
 unique(someNames, function(uniqArr){
-
     return uniqArr;
 });
+
+
+
+
 
 
 

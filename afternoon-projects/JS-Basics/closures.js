@@ -88,10 +88,6 @@ times5(3)  // Should return 15
 
 
 
-
-
-
-
 // Write a function called counterFactory that takes a value as the parameter and
 // returns two functions that implement up/down counter.
 // You will need to use the module pattern to achieve this.

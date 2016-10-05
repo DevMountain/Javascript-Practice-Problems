@@ -11,10 +11,6 @@ function first(arr) {
 }
 
 
-
-
-
-
 var arr = [40,50,60];
 
 
@@ -77,6 +73,7 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 
 
 var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
+
 
 // Write a function called divider that is given one argument, numbersArray.
 // Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray)
@@ -323,12 +320,14 @@ following properties. name, email, password, username.*/
 
 //include this as one of the objects in your array.
 
+
 var user1 = {
     name: 'Tyler McGinnis',
     email: 'tylermcginnis33@gmail.com',
     password: 'iLoveJavaScript',
     username: 'infiniateLoop'
 };
+
 
 //Your Code Here
 

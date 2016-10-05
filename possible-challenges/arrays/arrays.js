@@ -10,7 +10,6 @@ function findInArray(arr,value) {
 }
 
 
-
 //Write a function called 'maker' that creates an array and fills that array with numbers 1 to 25, then returns the array.
 
 function maker() {
@@ -265,16 +264,7 @@ function deleteUser(array, property, value) {
 // realistic search for the user by a user id
 
 
-function updateUserEmail(array, property, value, newEmail) {
-    var i;
-    for(i = 0; i < array.length; i++ ) {
-        if(array[i][property] === value) {
-           array[i].email = newEmail;
 
-        }
-    }
-    return array
-}
 
 
 
@@ -306,7 +296,16 @@ function changePassword(array, property, value, newPassword) {
 //
 //changePassword(users, 'userId', 123456, 'thinkinAboutClouds');
 
+function updateUserEmail(array, property, value, newEmail) {
+    var i;
+    for(i = 0; i < array.length; i++ ) {
+        if(array[i][property] === value) {
+            array[i].email = newEmail;
 
+        }
+    }
+    return array
+}
 
 
 function changeEmailWithMap(array, value, newEmail) {
@@ -320,8 +319,10 @@ function changeEmailWithMap(array, value, newEmail) {
 }
 
 // TESTS
+
 //var invoke = changeEmailWithMap([{name:'Tyler McGinnis',email:'tylermcginnis33@gmail.com',password:'iLoveJavaScript', username:'infiniteLoop', userId: 12345678}, {name:'Jeremy Robertson',email:'jeremy@devmounta.in',password:'somethingAboutCats',username: 'JR-4Life',userId: 1234567891011},{name:'Ben Callis', email:'bencallis1@gmail.com',password:'loveFrontEnd23',username:'bencallis1', userId: 123456}], 123456, 'thinkinAboutClouds@gmail.com');
 //
+
 //changeEmailWithMap(users, 123456, 'thinkinAboutClouds@gmail.com');
 
 
@@ -329,8 +330,8 @@ function changeEmailWithMap(array, value, newEmail) {
 
 // Here is another way to find the index of a property in an array of objects
 // Legit
-
 var index = users.map(function(e) {return e.userId;}).indexOf(123456);
+
 
 
 

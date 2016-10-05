@@ -5,13 +5,16 @@
 
 // Inside the return create a  property called publicMethod with a value that is a function that has 3 parameters a name, age and location,
 // this function returns privateMethod which also has 3 parameters a name, age and location.
+
 var module2 = (function() {
 
     var privateMethod = function(name, age, location){
         return name + ' ' + age + ' ' + location
     };
 
-    // Anything that is being returned is made public and can be invoked from outside our lexical scope
+    // Anything that is being returned is made public and can be invoked
+    // from outside our lexical scope
+
 
     return {
         publicMethod: function (name,age,location) {
@@ -21,17 +24,23 @@ var module2 = (function() {
 
 })();
 
+
 module2.publicMethod('ben', 29, 'UTAH');
 
 
 
 
-// Wrtie a functionFactory that takes a number parameter and then retrurns another function
-var functionFactory = function(num1) {
+// Wrtie a functionFactory that takes a number parameter and then returns another function
+function multiplier(num1) {
     return function(num2) {
         return num1 * num2;
     }
 }
+
+var result = multiplier(4);
+result(5);
+
+
 
 //
 

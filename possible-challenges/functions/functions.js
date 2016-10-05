@@ -146,7 +146,7 @@ console.log(letterCapitalize("i want to be bigger"));
 
 function longestWord(str)
 {
-    var array1 = str.match(/\w[a-z]{0,}/gi);
+    var array1 = str.match(/\w[a-z]{0,}/gi); // this regex is looking for spaces
     var result = array1[0];
 
     for(var i = 1 ; i < array1.length ; i++)
@@ -160,8 +160,6 @@ function longestWord(str)
 }
 
 console.log(longestWord('Dev Mountain is full of Functions'));
-
-
 
 
 
@@ -300,6 +298,8 @@ function demethodize(func) {
     };
 }
 demethodize(Number.prototype.add)(5,6)
+
+
 
 
 /// If you wanted to do this in ES6 you would just use the spread operator
@@ -476,6 +476,8 @@ function substrings(str1)
 }
 
 substrings("Dev");
+substrings("((}()");
+
 
 
 
@@ -537,16 +539,46 @@ function MONAD() {
 
 
 
+// Balanced Bracket problem
+
+function isBalanced(string) {
+
+    var i,
+        thingsToCheck = "[]{}()", // The order here matters
+        itemsContainer = [],
+        char, position;
 
 
+    for(i = 0; char = string[i]; i++) {
+
+        // Here we are setting bracePosition to the index of the character in our thingsToCheck Array,
+        position = thingsToCheck.indexOf(char);
+
+        // If we don't find the brace in the thingsToCheck string then we continue with our check
+        if(position === -1) {
+            continue;
+        }
+
+        // Here we are going to check if the posistion is even
+        if(position % 2 === 0) {
+
+            // If it is even then we will push the position plus 1 which will make it an odd number
+            itemsContainer.push(position + 1);
+        } else {
+            // if the position is not even then it must be odd, so we
+            debugger
+            if(itemsContainer.pop() !== position) {
+                return false;
+            }
+        }
+    }
+
+    return itemsContainer.length === 0;
+}
 
 
-
-
-
-
-
-
+isBalanced(' ({[]}(){})') // true
+isBalanced('}{[]()') // false
 
 
 

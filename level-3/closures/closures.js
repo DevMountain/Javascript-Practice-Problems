@@ -21,14 +21,48 @@ var module2 = (function() {
 module2.publicMethod('ben', 29, 'UTAH');
 
 
+function makeFunc() {
+    var name = "Ben Callis";
+    function displayName() {
+        alert(name);
+    }
+    return displayName;
+}
+
+var myFunc = makeFunc();
+myFunc();
+
+
+
+function makeAdder(x) {
+    return function(y) {
+        return x + y;
+    };
+}
+
+
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+
+console.log(add5(2));
+
+
+console.log(add10(2));
+
+
+
 
 
 // Wrtie a functionFactory that takes a number parameter and then retrurns another function
-var functionFactory = function(num1) {
+ function functionFactory (num1) {
     return function(num2) {
         return num1 * num2;
     }
 }
+
+var add7 = functionFactory(7);
+
+console.log(add7);
 
 //
 //Write a function, saySomething that takes an parameter  `string`.
@@ -43,7 +77,7 @@ function saySomething(string){
     words(string)
 }
 
-saySomething('what is this')
+saySomething('what is this');
 
 
 
@@ -65,12 +99,6 @@ var nameTester = function(name1) {
 var newName = nameTester('Billy');
 newName('Bob');
 
-firstNameFarmer('sally')
-
-
-
-
-
 
 var numberFactory = function(num1) {
     return function(num2) {
@@ -82,7 +110,8 @@ var numberFactory = function(num1) {
 
 var times5 = numberFactory(5);
 
-times5(3) // this would return 1
+times5(3)
+// this would return 15
 
 /* Make the following code work:
 
@@ -97,12 +126,19 @@ times5(3) // this would return 1
 
 var thefunc = function(number){
     return function() {
-        //console.log(number);
+        console.log(number);
         return number;
     }
 }
 
 funcArray = [thefunc(0), thefunc(1), thefunc(2), thefunc(3)];
+
+
+
+funcArray[0]() //returns 0
+funcArray[1]() //returns 1
+funcArray[2]() //returns 2
+funcArray[3]() //returns 3
 
 
 function add(num1){
@@ -162,6 +198,7 @@ function fade(id) {
             setTimeout(step, 100);
         }
     }
+    
     setTimeout(step, 100)
 }
 
@@ -183,6 +220,7 @@ Object.prototype.later = function (msec, method) {
     return that;    // Cascade
 };
 }
+
 
 function publish(item, author, callback){   // Generic function with common data
     console.log(item);
